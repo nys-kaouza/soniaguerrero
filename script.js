@@ -36,7 +36,7 @@ if(menuToggle && navMenu) {
     });
 }
 
-// 3. LAZY LOADING PARA VIDEOS (Hace la página rapidísima)
+// 3. LAZY LOADING PARA VIDEOS (Compatible con celulares)
 document.addEventListener("DOMContentLoaded", function() {
     const lazyVideos = document.querySelectorAll('.lazy-video');
 
@@ -45,9 +45,15 @@ document.addEventListener("DOMContentLoaded", function() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const video = entry.target;
-                    video.load(); // Carga el video
-                    video.play(); // Lo reproduce
-                    observer.unobserve(video); // Deja de vigilarlo
+                    const source = video.querySelector('source');
+                    
+                    // Intercambia data-src por src para engañar al celular
+                    if (source && source.hasAttribute('data-src')) {
+                        source.src = source.getAttribute('data-src');
+                        video.load(); // El autoplay nativo hace el resto
+                        source.removeAttribute('data-src');
+                    }
+                    observer.unobserve(video);
                 }
             });
         });
@@ -56,10 +62,13 @@ document.addEventListener("DOMContentLoaded", function() {
             videoObserver.observe(video);
         });
     } else {
-        // Si el celular es muy viejo, los reproduce por defecto
+        // Respaldo para navegadores muy antiguos
         lazyVideos.forEach(video => {
-            video.load();
-            video.play();
+            const source = video.querySelector('source');
+            if (source && source.hasAttribute('data-src')) {
+                source.src = source.getAttribute('data-src');
+                video.load();
+            }
         });
     }
 });
