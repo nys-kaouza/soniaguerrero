@@ -35,10 +35,11 @@
         </div>
     </header>
 
-    <!-- Sección Conóceme (Foto corregida) -->
+    <!-- Sección Conóceme (Foto blindada contra desbordes) -->
     <section id="about" class="light-section split-section">
-        <!-- Uso de etiqueta de imagen directa para evitar que colapse en celular -->
-        <img src="sonia.png" alt="Sonia Guerrero" class="about-image">
+        
+        <!-- Etiqueta protegida para que no rompa la pantalla en celulares -->
+        <img src="sonia.png" alt="Sonia Guerrero" class="about-image" style="max-width: 100%; object-fit: cover; border-radius: 4px;">
         
         <div class="split-text text-center">
             <p class="small-title">Bienvenidos</p>
