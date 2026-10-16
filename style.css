@@ -1,7 +1,7 @@
 :root {
     --bg-dark: #121212; 
     --bg-light: #F9F9F9; 
-    --accent-gold: #C59B27; /* El tono dorado exacto del logo SG */
+    --accent-gold: #C59B27; 
     --text-dark: #2a2a2a;
     --text-light: #f4f4f4;
 }
@@ -18,7 +18,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* Tipografía y Acentos */
 h1, h2, h3 {
     font-weight: 300;
 }
@@ -59,17 +58,14 @@ nav.scrolled {
     padding: 20px 5%;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
-
-/* Estilo para el Logo en PNG */
 nav .logo-img {
-    height: 60px; /* Ajusta este valor si tu logo se ve muy grande o muy chico */
+    height: 60px;
     width: auto;
     transition: transform 0.3s ease;
 }
 nav .logo-img:hover {
     transform: scale(1.05);
 }
-
 nav ul {
     list-style: none;
     display: flex;
@@ -101,22 +97,45 @@ nav ul li a:hover {
     cursor: pointer;
     transition: background 0.3s ease;
     margin-top: 20px;
+    border-radius: 4px;
 }
 .btn-solid:hover {
     background-color: #9A6A12;
 }
 
-.btn-social {
+.btn-social-dark {
     padding: 12px 25px;
     background: transparent;
-    border: 1px solid var(--accent-gold);
-    color: var(--text-light);
+    border: 1px solid #333;
+    color: #333;
     font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.3s ease;
     border-radius: 4px;
 }
-.btn-social:hover {
+.btn-social-dark:hover {
+    background: var(--accent-gold);
+    color: #fff;
+    border-color: var(--accent-gold);
+}
+.btn-social-dark i {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+.btn-outline:hover {
     background: var(--accent-gold);
     color: #fff;
 }
@@ -139,7 +158,7 @@ section {
     margin-bottom: 50px;
 }
 
-/* 1. Hero (Banner con portada.png) */
+/* 1. Hero (Banner) */
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('portada.png') center/cover;
@@ -161,7 +180,7 @@ section {
     line-height: 1.2;
 }
 
-/* 2. Conóceme (Split Section con sonia.png) */
+/* 2. Conóceme (Split Section) */
 .split-section {
     display: flex;
     align-items: center;
@@ -189,22 +208,11 @@ section {
     color: #555;
 }
 
-/* 3. Servicios (Cuadrícula 2x2 para las 4 opciones) */
+/* 3. Servicios y Cuadrícula General */
 .grid-2x2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
-}
-@media (max-width: 768px) {
-    .grid-2x2 {
-        grid-template-columns: 1fr;
-    }
-    .split-section {
-        flex-direction: column;
-    }
-    .split-image {
-        width: 100%;
-    }
 }
 .service-box img {
     width: 100%;
@@ -231,69 +239,16 @@ section {
     color: #bbb;
 }
 
-/* 4. Portafolio (Galería limpia) */
+/* 4. Portafolio de Videos */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-.gallery-item {
-    height: 400px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 4px;
-    transition: transform 0.4s ease;
-}
-.gallery-item:hover {
-    transform: scale(1.02);
-}
-
-/* 5. Contacto (Formulario) */
-.contact-form {
-    max-width: 700px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.form-row {
-    display: flex;
-    gap: 20px;
-}
-.form-row input {
-    flex: 1;
-}
-.contact-form input, .contact-form textarea {
-    padding: 15px 20px;
-    background: transparent;
-    border: 1px solid #444;
-    color: var(--text-light);
-    font-size: 0.9rem;
-    outline: none;
-    transition: border 0.3s;
-}
-.contact-form input:focus, .contact-form textarea:focus {
-    border-color: var(--accent-gold);
-}
-/* Espaciado para los logos de las redes sociales */
-.btn-social i {
-    margin-right: 8px;
-    font-size: 1.1rem;
-}
-/* =========================================
-   ESTILOS PARA GALERÍA DE VIDEOS Y RESEÑAS
-   ========================================= */
-
-/* Galería de Videos */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Se adapta automático a 3 o 4 columnas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
 }
 .gallery-video {
     width: 100%;
     height: 400px;
-    object-fit: cover; /* Hace que el video llene el cuadro sin deformarse */
+    object-fit: cover;
     border-radius: 4px;
     transition: transform 0.4s ease;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -302,9 +257,9 @@ section {
     transform: scale(1.03);
 }
 
-/* Tarjetas de Reseñas */
+/* 5. Testimonios */
 .review-card {
-    background-color: #1a1a1a; /* Fondo oscuro para contrastar */
+    background-color: #1a1a1a;
     padding: 40px 30px;
     border: 1px solid rgba(197, 155, 39, 0.3); 
     border-radius: 4px;
@@ -340,39 +295,97 @@ section {
     margin-top: 5px;
 }
 
-/* Botones con borde transparente */
-.btn-outline {
-    display: inline-block;
-    padding: 12px 30px;
-    border: 1px solid var(--accent-gold);
-    color: var(--accent-gold);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.8rem;
-    transition: all 0.3s ease;
-    border-radius: 4px;
+/* 6. Formulario */
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
-.btn-outline:hover {
-    background: var(--accent-gold);
-    color: #fff;
+.form-row {
+    display: flex;
+    gap: 20px;
 }
-.btn-social-dark {
-    padding: 12px 25px;
+.form-row input {
+    flex: 1;
+}
+.contact-form input, .contact-form textarea {
+    padding: 15px 20px;
     background: transparent;
-    border: 1px solid #333;
+    border: 1px solid #ccc;
     color: #333;
     font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    outline: none;
+    transition: border 0.3s;
     border-radius: 4px;
 }
-.btn-social-dark:hover {
-    background: var(--accent-gold);
-    color: #fff;
+.contact-form input:focus, .contact-form textarea:focus {
     border-color: var(--accent-gold);
 }
-.btn-social-dark i {
-    margin-right: 8px;
+
+/* =========================================
+   DISEÑO RESPONSIVO (MÓVILES)
+   ========================================= */
+
+/* Ocultar botón hamburguesa en PC */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* Pantallas pequeñas (Celulares y Tablets) */
+@media (max-width: 768px) {
+    /* Ajustes generales */
+    .grid-2x2 {
+        grid-template-columns: 1fr;
+    }
+    .split-section {
+        flex-direction: column;
+    }
+    .split-image {
+        width: 100%;
+        height: 400px;
+    }
+    .form-row {
+        flex-direction: column;
+    }
+    
+    /* Menú Hamburguesa */
+    .menu-toggle {
+        display: block;
+    }
+    nav ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(18, 18, 18, 0.98);
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 30px 0;
+        display: none;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.5);
+    }
+    nav ul.active {
+        display: flex;
+    }
+    
+    /* Textos y espacios reducidos para celular */
+    section {
+        padding: 60px 5%;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+}
     font-size: 1.1rem;
 }
