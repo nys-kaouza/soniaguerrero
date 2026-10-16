@@ -42,3 +42,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+// 3. Menú Hamburguesa para Móviles
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+if(menuToggle && navMenu) {
+    // Abrir/Cerrar menú al tocar el icono
+    menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        
+        // Cambiar icono de barras a 'X'
+        const icon = menuToggle.querySelector('i');
+        if(navMenu.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
+        } else {
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+    });
+
+    // Cerrar menú automáticamente al elegir una opción
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        });
+    });
+}
