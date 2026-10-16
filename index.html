@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <!-- Navegación Corregida -->
+    <!-- Navegación con menú alineado a la derecha -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="#"><img src="logo.png" alt="Sonia Guerrero Logo" class="logo-img"></a>
@@ -27,6 +27,7 @@
         </ul>
     </nav>
 
+    <!-- Banner Inicial -->
     <header class="hero">
         <div class="hero-content">
             <p class="subtitle">Event & Wedding Planner</p>
@@ -34,17 +35,21 @@
         </div>
     </header>
 
+    <!-- Sección Conóceme (Foto corregida) -->
     <section id="about" class="light-section split-section">
-        <div class="split-image about-img"></div>
+        <!-- Uso de etiqueta de imagen directa para evitar que colapse en celular -->
+        <img src="sonia.png" alt="Sonia Guerrero" class="about-image">
+        
         <div class="split-text text-center">
             <p class="small-title">Bienvenidos</p>
             <h2>Hola, soy <span class="cursive-accent">Sonia</span></h2>
             <br>
             <p>Mi formación en Hotelería, Turismo y Derecho me ha dado una base inquebrantable en atención al detalle, ética y resolución estratégica de problemas. Hoy, como Wedding Planner certificada, combino esa precisión analítica con mi mayor pasión: el diseño de momentos inolvidables.</p>
-            <p>Soy una perfeccionista enamorada de las sutilezas. Creo firmemente que una celebración extraordinaria nace de una planificación impecable y un compromiso absoluto.</p>
+            <p>Soy una perfeccionista enamorada de las sutilezas. Creo firmemente que una celebración extraordinaria nace de una planificación impecable y un compromiso absoluto. Mi misión es dar más del 100% en cada proyecto, garantizando que tu evento fluya con elegancia, armonía y total tranquilidad para ti.</p>
         </div>
     </section>
 
+    <!-- Sección Servicios -->
     <section id="services" class="dark-section text-center">
         <p class="small-title">Lo que hacemos</p>
         <h2 class="section-title">Nuestra Experiencia</h2>
@@ -73,20 +78,19 @@
         </div>
     </section>
 
-    <!-- Portafolio de VIDEOS (Optimizados para cargar rápido) -->
+    <!-- Portafolio de Videos -->
     <section id="portfolio" class="light-section text-center">
         <p class="small-title">Inspiración en Movimiento</p>
         <h2 class="section-title">Nuestro Trabajo</h2>
         
         <div class="gallery">
-            <!-- Ya no dicen autoplay, el JS los activará -->
             <video class="gallery-video lazy-video" loop muted playsinline preload="none">
                 <source src="10.mp4" type="video/mp4">
             </video>
             <video class="gallery-video lazy-video" loop muted playsinline preload="none">
                 <source src="2.mp4" type="video/mp4">
             </video>
-            <video class="gallery-video lazy-video" loop flip muted playsinline preload="none">
+            <video class="gallery-video lazy-video" loop muted playsinline preload="none">
                 <source src="3.mp4" type="video/mp4">
             </video>
             <video class="gallery-video lazy-video" loop muted playsinline preload="none">
@@ -101,6 +105,7 @@
         </div>
     </section>
 
+    <!-- Testimonios -->
     <section id="reviews" class="dark-section text-center">
         <p class="small-title">Lo que dicen nuestros clientes</p>
         <h2 class="section-title">Testimonios</h2>
@@ -132,6 +137,7 @@
         </div>
     </section>
 
+    <!-- Contacto -->
     <section id="contact" class="light-section text-center">
         <h2 class="section-title">Hablemos de tu evento</h2>
         
