@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <!-- Navegación con menú alineado a la derecha -->
+    <!-- Navegación -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="#"><img src="logo.png" alt="Sonia Guerrero Logo" class="logo-img"></a>
@@ -27,7 +27,6 @@
         </ul>
     </nav>
 
-    <!-- Banner Inicial -->
     <header class="hero">
         <div class="hero-content">
             <p class="subtitle">Event & Wedding Planner</p>
@@ -35,12 +34,8 @@
         </div>
     </header>
 
-    <!-- Sección Conóceme (Foto blindada contra desbordes) -->
     <section id="about" class="light-section split-section">
-        
-        <!-- Etiqueta protegida para que no rompa la pantalla en celulares -->
-        <img src="sonia.png" alt="Sonia Guerrero" class="about-image" style="max-width: 100%; object-fit: cover; border-radius: 4px;">
-        
+        <img src="sonia.png" alt="Sonia Guerrero" class="about-image">
         <div class="split-text text-center">
             <p class="small-title">Bienvenidos</p>
             <h2>Hola, soy <span class="cursive-accent">Sonia</span></h2>
@@ -50,7 +45,6 @@
         </div>
     </section>
 
-    <!-- Sección Servicios -->
     <section id="services" class="dark-section text-center">
         <p class="small-title">Lo que hacemos</p>
         <h2 class="section-title">Nuestra Experiencia</h2>
@@ -79,11 +73,9 @@
         </div>
     </section>
 
-  <!-- Portafolio de VIDEOS (Carga diferida móvil) -->
     <section id="portfolio" class="light-section text-center">
         <p class="small-title">Inspiración en Movimiento</p>
         <h2 class="section-title">Nuestro Trabajo</h2>
-        
         <div class="gallery">
             <video class="gallery-video lazy-video" autoplay loop muted playsinline>
                 <source data-src="10.mp4" type="video/mp4">
@@ -105,28 +97,36 @@
             </video>
         </div>
     </section>
-    
-    <!-- Testimonios -->
+
+    <!-- SECCIÓN DE RESEÑAS REALES -->
     <section id="reviews" class="dark-section text-center">
-        <p class="small-title">Lo que dicen nuestros clientes</p>
+        <p class="small-title">Lo que dicen nuestras novias</p>
         <h2 class="section-title">Testimonios</h2>
         
         <div class="grid-2x2">
+            <!-- Reseña 1 -->
             <div class="review-card">
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-text">"Sonia hizo que nuestra boda fuera un sueño absoluto. Su organización impecable nos permitió disfrutar sin estrés."</p>
-                <h4 class="review-author">- Mariana & Alejandro</h4>
-                <p class="review-event">Boda de destino</p>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="review-text">"Súper recomendable. La organización y disposición en cada parte del proceso, siempre busca la manera de solucionar lo que se presente. El acompañamiento y la atención no te deja con la incertidumbre."</p>
+                <h4 class="review-author">- Paty De La Garza</h4>
             </div>
+            <!-- Reseña 2 -->
             <div class="review-card">
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="review-text">"Increíble profesional. Nos ayudó con toda la logística. Todo salió a la perfección."</p>
-                <h4 class="review-author">- Familia Garza</h4>
-                <p class="review-event">XV Años</p>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="review-text">"Fue lo mejor el día de mi boda, estuvo todo el tiempo al pendiente de todo lo que necesitaba, tiene un excelente servicio. Ese día yo no me preocupé por nada, gracias a ella."</p>
+                <h4 class="review-author">- Evelyn Martinez</h4>
+            </div>
+            <!-- Reseña 3 -->
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="review-text">"Me gustó mucho la aplicación que maneja para el control de los invitados en tiempo real. Es súper atenta, aclara tus dudas y te da sugerencias de proveedores acorde a tu presupuesto."</p>
+                <h4 class="review-author">- Novia Anónima</h4>
+            </div>
+            <!-- Reseña 4 -->
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="review-text">"Me gusta cómo gestiona las cosas y sobre todo siempre trata de darte tranquilidad con un muy buen trato. Todas las dudas que tengo me las responde y siempre está al pendiente. Recomendada."</p>
+                <h4 class="review-author">- WhiteMeerkat4292</h4>
             </div>
         </div>
 
@@ -138,10 +138,8 @@
         </div>
     </section>
 
-    <!-- Contacto -->
     <section id="contact" class="light-section text-center">
         <h2 class="section-title">Hablemos de tu evento</h2>
-        
         <p style="margin-bottom: 10px; color: #555; font-size: 1.1rem;">Cuéntanos cómo imaginas tu evento y lo hacemos realidad.</p>
         <p style="margin-bottom: 40px; color: var(--accent-gold); font-style: italic; letter-spacing: 1px;">Monterrey y alrededores</p>
         
@@ -169,6 +167,49 @@
             <button type="submit" class="btn-solid">Enviar Mensaje</button>
         </form>
     </section>
+
+    <!-- FOOTER CON MARCA DE AGUA -->
+    <footer class="site-footer text-center">
+        <p>&copy; 2026 Sonia Guerrero Event Planner. Todos los derechos reservados.</p>
+        <p><a href="#" id="open-privacy" class="privacy-link">Política de Privacidad</a></p>
+        <p class="watermark">Designed by <span class="cursive-accent">Kaouza.web</span> by Stephany Candela</p>
+    </footer>
+
+    <!-- VENTANA EMERGENTE: POLÍTICA DE PRIVACIDAD -->
+    <div id="privacy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="font-family: 'Playfair Display', serif; color: #C59B27; margin-bottom: 10px;">Política de Privacidad</h2>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 20px;">Última actualización: 05/10/2026</p>
+            
+            <div style="text-align: left; font-size: 0.9rem; line-height: 1.6; color: #333;">
+                <p>Bienvenido. La privacidad y la seguridad de los datos de nuestros clientes y usuarios son de suma importancia. Esta política de privacidad describe cómo recopilamos, utilizamos, protegemos y compartimos la información personal en el marco de nuestros servicios de planeación de eventos.</p>
+                
+                <h4 style="margin-top: 15px;">Titular y Responsable del tratamiento de los Datos</h4>
+                <ul style="list-style: none; padding-left: 0; margin-bottom: 15px;">
+                    <li><strong>Responsable del tratamiento:</strong> Stephany Candela / Kaouza.web</li>
+                    <li><strong>Dirección:</strong> Apodaca, Nuevo León, México</li>
+                    <li><strong>Número de Teléfono:</strong> 8119827084</li>
+                    <li><strong>Correo electrónico:</strong> Kaouza.raw@gmail.com</li>
+                </ul>
+
+                <h4 style="margin-top: 15px;">1. Información que recopilamos</h4>
+                <p>Recopilamos información personal básica cuando interactúas con nuestro sitio web o solicitas nuestros servicios (a través de formularios de contacto, cotizaciones o reservas): Nombre, apellidos, correo electrónico, número de teléfono, detalles específicos relacionados con el evento contratado y datos de facturación.</p>
+
+                <h4 style="margin-top: 15px;">2. Uso de la Información</h4>
+                <p>Utilizamos la información recopilada exclusivamente para fines relacionados con nuestra actividad, tales como: gestionar reservas, coordinar agendas, procesar pagos, comunicarnos para coordinar detalles y mejorar la experiencia de usuario.</p>
+
+                <h4 style="margin-top: 15px;">3. Uso de Cookies y Tecnologías de Seguimiento</h4>
+                <p>Utilizamos herramientas como Google Analytics para analizar el tráfico y el comportamiento de los visitantes en nuestro sitio web. Esto recopila información estadística mediante cookies técnicas y analíticas.</p>
+
+                <h4 style="margin-top: 15px;">4. Compartir Información con Terceros</h4>
+                <p>Tus datos son tratados con estricta confidencialidad. Solo compartimos datos estrictamente necesarios con proveedores de servicios de confianza (pasarelas de pago o soporte técnico web). No vendemos ni cedemos datos personales a terceros con fines comerciales.</p>
+
+                <h4 style="margin-top: 15px;">5. Derechos ARCO</h4>
+                <p>Como usuario y cliente, tienes el derecho de ejercer en todo momento tus Derechos de Acceso, Rectificación, Cancelación y Oposición. Para ejercer cualquiera de estos derechos, puedes enviar una solicitud formal a nuestro correo electrónico adjuntando una identificación oficial.</p>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
