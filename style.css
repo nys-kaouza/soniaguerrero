@@ -72,15 +72,16 @@ section { padding: 120px 8%; }
 .privacy-link { color: #888; text-decoration: underline; transition: color 0.3s; margin-top: 10px; display: inline-block;}
 .privacy-link:hover { color: var(--accent-gold); }
 
-/* Marca de agua camuflada */
+/* Marca de agua discreta pero visible */
 .watermark { 
     margin-top: 30px; 
-    font-size: 0.65rem; 
+    font-size: 0.75rem; /* Un poco más grande para que se lea bien */
     letter-spacing: 1px; 
-    color: #222; /* Gris súper oscuro para que se pierda en el fondo negro */
+    color: #555; /* Gris medio, elegante y visible */
 }
 .watermark .cursive-accent { 
-    color: #222; /* Sin dorado */
+    color: #777; /* Un gris un poco más claro para que resalte "Kaouza.web" */
+}
 }
 
 /* Modal */
