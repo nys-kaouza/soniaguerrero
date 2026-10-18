@@ -78,21 +78,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const spanClose = document.querySelector(".close-modal");
 
     if(btnPrivacy && modal && spanClose) {
-        // Abrir modal
-        btnPrivacy.onclick = function(e) {
+        // FORZAR QUE ESTÉ OCULTO AL CARGAR LA PÁGINA (Bloqueo para celulares)
+        modal.style.display = "none";
+
+        // Abrir modal al tocar el enlace
+        btnPrivacy.addEventListener('click', function(e) {
             e.preventDefault();
             modal.style.display = "block";
-        }
+        });
+        
         // Cerrar con la X
-        spanClose.onclick = function() {
+        spanClose.addEventListener('click', function() {
             modal.style.display = "none";
-        }
-        // Cerrar al dar clic afuera
-        window.onclick = function(event) {
-            if (event.target == modal) {
+        });
+        
+        // Cerrar al tocar fuera de la caja blanca
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
                 modal.style.display = "none";
             }
-        }
+        });
     }
 });
 
