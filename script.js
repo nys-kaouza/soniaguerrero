@@ -36,7 +36,7 @@ if(menuToggle && navMenu) {
     });
 }
 
-// 3. LAZY LOADING PARA VIDEOS (Compatible con celulares)
+// 3. LAZY LOADING PARA VIDEOS
 document.addEventListener("DOMContentLoaded", function() {
     const lazyVideos = document.querySelectorAll('.lazy-video');
 
@@ -47,10 +47,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     const video = entry.target;
                     const source = video.querySelector('source');
                     
-                    // Intercambia data-src por src para engañar al celular
                     if (source && source.hasAttribute('data-src')) {
                         source.src = source.getAttribute('data-src');
-                        video.load(); // El autoplay nativo hace el resto
+                        video.load(); 
                         source.removeAttribute('data-src');
                     }
                     observer.unobserve(video);
@@ -62,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function() {
             videoObserver.observe(video);
         });
     } else {
-        // Respaldo para navegadores muy antiguos
         lazyVideos.forEach(video => {
             const source = video.querySelector('source');
             if (source && source.hasAttribute('data-src')) {
@@ -73,7 +71,32 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// 4. Redirecciones a Redes Sociales
+// 4. Modal de Política de Privacidad
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById("privacy-modal");
+    const btnPrivacy = document.getElementById("open-privacy");
+    const spanClose = document.querySelector(".close-modal");
+
+    if(btnPrivacy && modal && spanClose) {
+        // Abrir modal
+        btnPrivacy.onclick = function(e) {
+            e.preventDefault();
+            modal.style.display = "block";
+        }
+        // Cerrar con la X
+        spanClose.onclick = function() {
+            modal.style.display = "none";
+        }
+        // Cerrar al dar clic afuera
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+});
+
+// 5. Redirecciones a Redes Sociales
 document.addEventListener('DOMContentLoaded', function() {
     const btnWpp = document.getElementById('btn-wpp');
     if(btnWpp) {
