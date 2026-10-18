@@ -71,8 +71,19 @@ section { padding: 120px 8%; }
 .site-footer { background-color: #0a0a0a; color: #666; padding: 40px 5%; font-size: 0.8rem; border-top: 1px solid #222; }
 .privacy-link { color: #888; text-decoration: underline; transition: color 0.3s; margin-top: 10px; display: inline-block;}
 .privacy-link:hover { color: var(--accent-gold); }
-.watermark { margin-top: 20px; font-size: 0.85rem; letter-spacing: 1px; color: #999;}
 
+/* Marca de agua camuflada */
+.watermark { 
+    margin-top: 30px; 
+    font-size: 0.65rem; 
+    letter-spacing: 1px; 
+    color: #222; /* Gris súper oscuro para que se pierda en el fondo negro */
+}
+.watermark .cursive-accent { 
+    color: #222; /* Sin dorado */
+}
+
+/* Modal */
 .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); }
 .modal-content { background-color: #fff; margin: 5% auto; padding: 40px; width: 90%; max-width: 700px; border-radius: 4px; position: relative; border-top: 4px solid var(--accent-gold);}
 .close-modal { color: #aaa; position: absolute; top: 15px; right: 25px; font-size: 28px; font-weight: bold; cursor: pointer; }
