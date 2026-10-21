@@ -1,78 +1,67 @@
-// 1. Menú oscuro al hacer scroll
-window.addEventListener('scroll', function() {
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // 1. Navegación (Cambio de color al hacer scroll)
     const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-// 2. Menú Hamburguesa
-const menuToggle = document.getElementById('menu-toggle');
-const navMenu = document.getElementById('nav-menu');
-
-if(menuToggle && navMenu) {
-    menuToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        const icon = menuToggle.querySelector('i');
-        if(navMenu.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-xmark');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
         } else {
-            icon.classList.remove('fa-xmark');
-            icon.classList.add('fa-bars');
+            navbar.classList.remove('scrolled');
         }
     });
 
-    const navLinks = navMenu.querySelectorAll('a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.remove('fa-xmark');
-            icon.classList.add('fa-bars');
+    // 2. Menú Móvil
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
         });
-    });
-}
-
-// 3. LAZY LOADING PARA VIDEOS
-document.addEventListener("DOMContentLoaded", function() {
-    const lazyVideos = document.querySelectorAll('.lazy-video');
-
-    if ('IntersectionObserver' in window) {
-        const videoObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const video = entry.target;
-                    const source = video.querySelector('source');
-                    
-                    if (source && source.hasAttribute('data-src')) {
-                        source.src = source.getAttribute('data-src');
-                        video.load(); 
-                        source.removeAttribute('data-src');
-                    }
-                    observer.unobserve(video);
-                }
+        
+        // Cerrar el menú móvil al hacer clic en cualquier enlace
+        document.querySelectorAll('#nav-menu li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
             });
         });
+    }
 
-        lazyVideos.forEach(video => {
-            videoObserver.observe(video);
-        });
-    } else {
-        lazyVideos.forEach(video => {
-            const source = video.querySelector('source');
-            if (source && source.hasAttribute('data-src')) {
-                source.src = source.getAttribute('data-src');
-                video.load();
-            }
+    // 3. Botones de Redes Sociales
+    const btnWpp = document.getElementById('btn-wpp');
+    const btnIg = document.getElementById('btn-ig');
+    const btnFb = document.getElementById('btn-fb');
+    const btnTiktok = document.getElementById('btn-tiktok');
+
+    if (btnWpp) {
+        btnWpp.addEventListener('click', function() {
+            // Conectado al número de teléfono de Sonia
+            window.open('https://wa.me/528180514689', '_blank'); 
         });
     }
-});
+    
+    if (btnIg) {
+        btnIg.addEventListener('click', function() {
+            // Conectado al Instagram oficial
+            window.open('https://www.instagram.com/guerreroplanner', '_blank');
+        });
+    }
+    
+    if (btnFb) {
+        btnFb.addEventListener('click', function() {
+            // Conectado a la página de Facebook
+            window.open('https://www.facebook.com/people/Sonia-Guerrero-Event-Planner/61588386422864/', '_blank');
+        });
+    }
+    
+    if (btnTiktok) {
+        btnTiktok.addEventListener('click', function() {
+            // Aquí puedes cambiar el enlace por el usuario real de TikTok si tiene
+            window.open('https://www.tiktok.com/', '_blank');
+        });
+    }
 
-// 4. Modal de Política de Privacidad
-document.addEventListener('DOMContentLoaded', function() {
+    // 4. Modal de Política de Privacidad (Con candado para celulares)
     const modal = document.getElementById("privacy-modal");
     const btnPrivacy = document.getElementById("open-privacy");
     const spanClose = document.querySelector(".close-modal");
@@ -99,38 +88,27 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-});
 
-// 5. Redirecciones a Redes Sociales
-document.addEventListener('DOMContentLoaded', function() {
-    const btnWpp = document.getElementById('btn-wpp');
-    if(btnWpp) {
-        btnWpp.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.open('https://wa.me/528180514689', '_blank');
+    // 5. Carga diferida de videos (Lazy loading) para hacer la página más rápida
+    const lazyVideos = document.querySelectorAll('video.lazy-video');
+    if ('IntersectionObserver' in window) {
+        const videoObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const video = entry.target;
+                    for (let source in video.children) {
+                        const videoSource = video.children[source];
+                        if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+                            videoSource.src = videoSource.dataset.src;
+                        }
+                    }
+                    video.load();
+                    videoObserver.unobserve(video);
+                }
+            });
+        });
+        lazyVideos.forEach(video => {
+            videoObserver.observe(video);
         });
     }
-
-    const btnFb = document.getElementById('btn-fb');
-    if(btnFb) {
-        btnFb.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.open('https://www.facebook.com/p/Sonia-Guerrero-Event-Planner-61588386422864/', '_blank');
-        });
-    }
-
-    const btnTiktok = document.getElementById('btn-tiktok');
-    if(btnTiktok) {
-        btnTiktok.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.open('https://www.tiktok.com/@soniaguerreroplanner?_r=1&_t=ZS-9AW0sJPsUq5', '_blank');
-        });
-    }
-    // Botón de Instagram
-    const btnIg = document.getElementById('btn-ig');
-    if (btnIg) {
-        btnIg.addEventListener('click', function() {
-        window.open('https://www.instagram.com/guerreroplanner', '_blank');
-    });
-}
 });
