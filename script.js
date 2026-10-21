@@ -126,4 +126,11 @@ document.addEventListener('DOMContentLoaded', function() {
             window.open('https://www.tiktok.com/@soniaguerreroplanner?_r=1&_t=ZS-9AW0sJPsUq5', '_blank');
         });
     }
+    // Botón de Instagram
+    const btnIg = document.getElementById('btn-ig');
+    if (btnIg) {
+        btnIg.addEventListener('click', function() {
+        window.open('https://www.instagram.com/guerreroplanner', '_blank');
+    });
+}
 });
